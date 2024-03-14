@@ -45,8 +45,8 @@ export function FilterTodo({ todosArr, setTodosArr }) {
     function showTodos() {
       setIsChecked2(!isChecked2); 
       const updatedTodo = isChecked2
-        ? todosArr.filter((ele) => ele.completed) 
-        : JSON.parse(localStorage.getItem(key)) || []; 
+        ?  JSON.parse(localStorage.getItem(key)) || []
+        : todosArr.filter((ele) => ele.completed);
       setTodosArr(updatedTodo);
     }
 
