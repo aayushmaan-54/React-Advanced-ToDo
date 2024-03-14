@@ -12,6 +12,7 @@ export function InputTodo() {
           placeholder="Enter ToDo..."
           value={inputTodo}
           onChange={(e) => setInputTodo(e.target.value)}
+          className="inputText"
         />
         
         <AddTodo inputTodo={inputTodo} setInputTodo={setInputTodo} />

@@ -41,6 +41,7 @@ export function EditTodo({todo, setTodosArr, todosArr}) {
                 type="text" 
                 value={text} 
                 onChange={(e) => setText(e.target.value)} 
+                className='inputText'
             />
 
             <button onClick={() => saveEditedTodo(todo.id)}><FaCheckCircle /></button>

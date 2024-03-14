@@ -6,7 +6,6 @@ function App() {
 
   return (
     <>
-      <h1 className='heading'>ToDo's 📃</h1>
       <InputTodo />
     </>
   )

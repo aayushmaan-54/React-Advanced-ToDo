@@ -5,10 +5,16 @@
     <link rel="stylesheet" href="./src/index.css">
     <link rel="shortcut icon" href="./src/assets/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
     <title>ToDo📃</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="bg-slate-800 w-screen h-screen text-white font-[Caveat] flex items-center justify-center flex-col">
+    <h1 class='text-center font-extrabold text-6xl underline underline-offset-[14px] decoration-sky-500'>ToDo's 📃</h1>
+    <div class="text-center border-blue-500 rounded-lg border-2">
+      <div id="root"></div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

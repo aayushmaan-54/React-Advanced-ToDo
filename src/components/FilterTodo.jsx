@@ -59,6 +59,7 @@ export function FilterTodo({ todosArr, setTodosArr }) {
                 placeholder='Search ToDo...'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                className='inputText'
             />
 
             <button onClick={searchTodo}><IoSearchCircle /></button> {" "}
