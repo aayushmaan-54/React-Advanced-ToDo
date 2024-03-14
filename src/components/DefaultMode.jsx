@@ -1,5 +1,7 @@
-import { useState } from 'react';
 import { key } from './exports';
+import { MdModeEdit } from "react-icons/md";
+import { HiMiniTrash } from "react-icons/hi2";
+
 
 export function DefaultMode({todo, setTodosArr, todosArr}) {
 
@@ -38,8 +40,8 @@ export function DefaultMode({todo, setTodosArr, todosArr}) {
             />
 
             <label htmlFor={`todo-${todo.id}`}>{todo.title}</label>
-            <button onClick={() => editTodoToggle(todo.id)}>Edit</button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button onClick={() => editTodoToggle(todo.id)}><MdModeEdit /></button>
+            <button onClick={() => deleteTodo(todo.id)}><HiMiniTrash /></button>
         </>
     )
 }

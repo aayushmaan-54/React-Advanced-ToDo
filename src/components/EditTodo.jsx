@@ -1,5 +1,10 @@
 import { useState } from 'react';
 import { key } from './exports';
+import { FaCheckCircle } from "react-icons/fa";
+import { IoIosCloseCircle } from "react-icons/io";
+import { HiMiniTrash } from "react-icons/hi2";
+
+
 
 export function EditTodo({todo, setTodosArr, todosArr}) {
     const [text, setText] = useState(() => todo.title);
@@ -38,9 +43,9 @@ export function EditTodo({todo, setTodosArr, todosArr}) {
                 onChange={(e) => setText(e.target.value)} 
             />
 
-            <button onClick={() => saveEditedTodo(todo.id)}>Save</button>
-            <button onClick={() => cancelEditting(todo.id)}>Cancel</button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button onClick={() => saveEditedTodo(todo.id)}><FaCheckCircle /></button>
+            <button onClick={() => cancelEditting(todo.id)}><IoIosCloseCircle /></button>
+            <button onClick={() => deleteTodo(todo.id)}><HiMiniTrash /></button>
         </>
     )
 }

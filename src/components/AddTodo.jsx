@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { EditTodo, key, uuidv4, DefaultMode } from './exports';
+import { FilterTodo, EditTodo, key, uuidv4, DefaultMode } from './exports';
+import { IoIosAddCircleOutline } from "react-icons/io";
+
 
 export function AddTodo({ inputTodo, setInputTodo }) {
     const [todosArr, setTodosArr] = useState([]);
@@ -11,7 +13,7 @@ export function AddTodo({ inputTodo, setInputTodo }) {
       }
     },[])
   
-  
+
     const addTodo = () => {
       if (inputTodo.trim()) {
         setTodosArr((prevTodosArr) => {
@@ -29,7 +31,8 @@ export function AddTodo({ inputTodo, setInputTodo }) {
     
     return (
       <>
-        <button onClick={addTodo}>Add Todo</button> <br /> <br />
+        <button onClick={addTodo}><IoIosAddCircleOutline /></button> <br /> <br />
+        <hr />
         {todosArr.map((todo) => (
           todo.editMode ? (
             <div key={todo.id}>
@@ -51,6 +54,7 @@ export function AddTodo({ inputTodo, setInputTodo }) {
             </div>
           )
         ))}
+        <FilterTodo todosArr={todosArr} setTodosArr={setTodosArr} todosArray={todosArr} />
       </>
     );
   }
