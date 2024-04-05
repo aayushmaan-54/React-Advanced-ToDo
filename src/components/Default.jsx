@@ -36,7 +36,10 @@ export function Default({ todo, todosArr, setTodosArr }) {
           className="accent-indigo-600 ml-4 mr-2"
           onChange={() => handleCheckboxChange(todo.id)}
         />
-        <label htmlFor={`todo-${todo.id}`} className="">
+        <label
+          htmlFor={`todo-${todo.id}`}
+          className={`${todo.completed ? 'line-through text-[#9d9d9d] decoration-white' : ''}`}
+        >
           {todo.title}
         </label>
         <button onClick={() => handleEditMode(todo.id)} className='mx-3'>
