@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.varFirstPart1 {
+    font-variation-settings: 'slnt' -10, 'wdth' 151, 'wght' 800;
+  }
+  
+.varFirstPart2 {
+    font-variation-settings: 'slnt' 0, 'wdth' 51, 'wght' 910, 'GRAD' 0, 'XTRA' 468, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'XTRA' 468;
+}
+  
+.varSecondPart1 {
+    font-variation-settings: 'slnt' -10, 'wdth' 151, 'wght' 270, 'GRAD' 0, 'XTRA' 468, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'XTRA' 168;
+}
+  
+.varSecondPart2 {
+    font-variation-settings: 'slnt' 0, 'wdth' 151, 'wght' 270, 'GRAD' 0, 'XTRA' 468, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'XTRA' 468;
+}
