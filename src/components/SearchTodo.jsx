@@ -7,15 +7,19 @@ export function SearchTodo({setTodosArr, todosArr}) {
 
     useEffect(() => {
         if (search.trim().length === 0) {
-            const storedTodo = JSON.parse(localStorage.getItem(key));
-            setTodosArr(storedTodo);
-          } else {
+          const storedTodo = JSON.parse(localStorage.getItem(key));
+          setTodosArr(storedTodo);
+        } else {
+          if (todosArr) {
             const updatedTodo = todosArr.filter((ele) =>
               ele.title.toLowerCase().includes(search.toLowerCase())
             );
             setTodosArr(updatedTodo);
+          } else {
+            console.warn('todosArr is null');
           }
-    }, [search])
+        }
+      }, [search]);
 
     return(
         <div className="py-3" >
