@@ -17,10 +17,12 @@ export function AddTodo() {
     const inputValue = inputTodoRef.current.value.trim();
     if (inputValue) {
       setTodosArr((prevTodosArr) => {
-        const newTodosArr = [
-          ...prevTodosArr,
-          { title: inputValue, completed: false, id: uuidv4(), editMode: false },
-        ];
+        const newTodosArr = prevTodosArr
+          ? [
+              ...prevTodosArr,
+              { title: inputValue, completed: false, id: uuidv4(), editMode: false },
+            ]
+          : [{ title: inputValue, completed: false, id: uuidv4(), editMode: false }];
         localStorage.setItem(key, JSON.stringify(newTodosArr));
         return newTodosArr;
       });
@@ -29,17 +31,19 @@ export function AddTodo() {
   }, [inputTodoRef, setTodosArr, key]);
 
   const taskCountString = useMemo(() => {
-    if (!todosArr.length) {
+    if (!todosArr) {
+      return "No Tasks";
+    } else if (todosArr.length === 0) {
       return "No Tasks";
     } else if (todosArr.length === 1) {
       return "1 Task";
     } else {
       return `${todosArr.length} Tasks`;
     }
-  }, [todosArr.length]);
+  }, [todosArr]);
   
-  const completedTodos = useMemo(() => todosArr.filter((todo) => todo.completed), [todosArr]);
-  const incompleteTodos = useMemo(() => todosArr.filter((todo) => !todo.completed), [todosArr]);
+  const completedTodos = useMemo(() => (todosArr ? todosArr.filter((todo) => todo.completed) : []), [todosArr]);
+  const incompleteTodos = useMemo(() => (todosArr ? todosArr.filter((todo) => !todo.completed) : []), [todosArr]);
 
   return (
     <>
@@ -56,23 +60,11 @@ export function AddTodo() {
           </div>
         </div>
       <div className="overflow-y-scroll scrollbar-thumb-[#9358F7] scrollbar-thin scrollbar-track-slate-700 h-3/6">
-      {todosArr.map((todo, index) =>
-        todo.editMode ? (
-          <EditMode
-            key={index}
-            todo={todo}
-            todosArr={todosArr}
-            setTodosArr={setTodosArr}
-          />
+      {todosArr && todosArr.map((todo, index) => todo.editMode ? (
+          <EditMode key={index} todo={todo} todosArr={todosArr} setTodosArr={setTodosArr} />
         ) : (
-          <Default
-            key={index}
-            todo={todo}
-            todosArr={todosArr}
-            setTodosArr={setTodosArr}
-          />
-        )
-      )}
+          <Default key={index} todo={todo} todosArr={todosArr} setTodosArr={setTodosArr} />
+        ))}
       </div>
       <InputTodo todoAddHandler={todoAddHandler} inputTodoRef={inputTodoRef} />
       <FilterTodo setTodosArr={setTodosArr} todosArr={todosArr} />
